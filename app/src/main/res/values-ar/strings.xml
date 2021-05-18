@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حالة كورونا</string>
+    <string name="no_data">لا يوجد بيانات من المصدر</string>
+    <string name="no_internet">لايوجد اتصال بالإنترنت</string>
+    <string name="today_cases">حالات اليوم في</string>
+    <string name="close_dialog">إغلاق</string>
+
+    <string name="confirmed">إصابات: </string>
+    <string name="deaths">وفاة: </string>
+    <string name="active">نشطة: </string>
+    <string name="search">بحث</string>
+
+</resources>

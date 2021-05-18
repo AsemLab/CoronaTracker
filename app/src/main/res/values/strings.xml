@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Corona Tracker</string>
+    <string name="no_data">No data found</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="today_cases">Today cases in</string>
+    <string name="close_dialog">Close</string>
+
+    <string name="confirmed">confirmed: </string>
+    <string name="deaths">deaths: </string>
+    <string name="active">active: </string>
+    <string name="search">Search</string>
+</resources>
