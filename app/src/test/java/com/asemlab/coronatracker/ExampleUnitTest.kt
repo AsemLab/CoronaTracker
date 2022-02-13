@@ -1,4 +1,4 @@
-package com.asem.coronatracker
+package com.asemlab.coronatracker
 
 import org.junit.Test
 

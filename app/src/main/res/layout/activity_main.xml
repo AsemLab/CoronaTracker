@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFE082"
-        tools:context=".MainActivity">
+        tools:context="com.asemlab.coronatracker.MainActivity">
 
         <SearchView
             android:id="@+id/search_bar"
@@ -42,7 +42,7 @@
                 android:id="@+id/list_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="#FFE082"
+                android:background="#686767"
                 android:dividerHeight="1dp" />
         </android.support.v4.widget.SwipeRefreshLayout>
 

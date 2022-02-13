@@ -1,4 +1,4 @@
-package com.asem.coronatracker
+package com.asemlab.coronatracker
 
 import android.content.Context
 import android.databinding.DataBindingUtil
@@ -11,9 +11,9 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.view.Window
 import android.view.WindowManager
 import android.widget.*
+import com.asem.coronatracker.R
 import com.asem.coronatracker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<MutableList<Country>> {
@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<MutableL
     fun startAlert(country: Country){
         val msg: String =
             "\n"+ getString(R.string.confirmed) +"  "+ CountryAdapter.formatNuumbers(country.newCases) + "\n\n" +
-                    getString(R.string.deaths) + "  "+CountryAdapter.formatNuumbers(country.newDeaths) + "\n\n" +
+                    getString(R.string.deaths) + "  "+ CountryAdapter.formatNuumbers(country.newDeaths) + "\n\n" +
                     getString(R.string.active) +"  "+ CountryAdapter.formatNuumbers(country.active) + "\n"
 
         alert.setTitle(getString(R.string.today_cases)+" "+country.name).setMessage(msg).show()

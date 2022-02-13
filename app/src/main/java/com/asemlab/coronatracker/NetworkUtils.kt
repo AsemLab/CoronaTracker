@@ -1,4 +1,4 @@
-package com.asem.coronatracker
+package com.asemlab.coronatracker
 
 import android.util.Log
 import org.json.JSONArray
@@ -35,7 +35,7 @@ class NetworkUtils {
             return line.toString()
         }
 
-        fun parseInfo(tempObj: JSONObject):Country{
+        fun parseInfo(tempObj: JSONObject): Country {
             try{
                 val totalCases = tempObj.optLong("cases")
                 val newCases = tempObj.optLong("todayCases")

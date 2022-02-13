@@ -1,4 +1,4 @@
-package com.asem.coronatracker
+package com.asemlab.coronatracker
 
 class Country(val totalCases:Long, val newCases:Long, val totalDeaths:Long, val newDeaths:Long,
               val totalRecovered:Long,

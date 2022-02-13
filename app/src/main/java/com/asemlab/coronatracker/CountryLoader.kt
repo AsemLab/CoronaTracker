@@ -1,4 +1,4 @@
-package com.asem.coronatracker
+package com.asemlab.coronatracker
 
 import android.content.Context
 import android.support.v4.content.AsyncTaskLoader

@@ -1,4 +1,4 @@
-package com.asem.coronatracker
+package com.asemlab.coronatracker
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
