@@ -6,6 +6,7 @@
     android:layout_height="90dp"
     android:orientation="horizontal"
     android:background="?android:attr/selectableItemBackground"
+    tools:background="@color/list_background"
     >
 
     <TextView
@@ -33,7 +34,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
         android:textSize="14sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         tools:text="999999999"
         android:layout_weight="1"

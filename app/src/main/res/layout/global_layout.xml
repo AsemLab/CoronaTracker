@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="90dp"
     android:orientation="horizontal"
-    android:background="#FFD54F"
+    android:background="@color/global_background"
     android:id="@+id/global"
     android:onClick="clickOnGlobal"
     >
@@ -39,7 +39,7 @@
         tools:text="999999999"
         android:textStyle="bold"
         android:layout_weight="1"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         />
     <ImageView
         android:id="@+id/globalCases_imageView"

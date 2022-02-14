@@ -12,9 +12,11 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.*
-import com.asem.coronatracker.R
-import com.asem.coronatracker.databinding.ActivityMainBinding
+import android.widget.ImageView
+import android.widget.ListView
+import android.widget.SearchView
+import android.widget.TextView
+import com.asemlab.coronatracker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<MutableList<Country>> {
 
@@ -100,9 +102,11 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<MutableL
 
 
         }
-        binding.swipeRefresh.setColorSchemeResources(android.R.color.holo_blue_dark,
+        binding.swipeRefresh.setColorSchemeResources(
+            android.R.color.holo_blue_dark,
             android.R.color.holo_red_dark,
-            android.R.color.holo_green_dark)
+            android.R.color.holo_green_dark
+        )
     }
 
     override fun onCreateLoader(p0: Int, p1: Bundle?): Loader<MutableList<Country>> {
@@ -136,17 +140,16 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<MutableL
         adapter.clear()
     }
 
-    fun startAlert(country: Country){
+    fun startAlert(country: Country) {
         val msg: String =
-            "\n"+ getString(R.string.confirmed) +"  "+ CountryAdapter.formatNuumbers(country.newCases) + "\n\n" +
-                    getString(R.string.deaths) + "  "+ CountryAdapter.formatNuumbers(country.newDeaths) + "\n\n" +
-                    getString(R.string.active) +"  "+ CountryAdapter.formatNuumbers(country.active) + "\n"
+            "\n" + getString(R.string.confirmed) + "  " + CountryAdapter.formatNuumbers(country.newCases) + "\n\n" +
+                    getString(R.string.deaths) + "  " + CountryAdapter.formatNuumbers(country.newDeaths) + "\n\n" +
+                    getString(R.string.active) + "  " + CountryAdapter.formatNuumbers(country.active) + "\n"
 
-        alert.setTitle(getString(R.string.today_cases)+" "+country.name).setMessage(msg).show()
+        alert.setTitle(getString(R.string.today_cases) + " " + country.name).setMessage(msg).show()
     }
 
     fun generateGlobal() {
-
 
 
         val totalCases = findViewById<TextView>(R.id.globalCases_textView)

@@ -11,12 +11,12 @@
 
         <SearchView
             android:id="@+id/search_bar"
-            style="@style/SearchViewTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:iconifiedByDefault="false"
             android:queryHint="@string/search"
+            android:theme="@style/SearchViewTheme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -42,8 +42,9 @@
                 android:id="@+id/list_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="#686767"
-                android:dividerHeight="1dp" />
+                android:background="@color/list_background"
+                android:dividerHeight="1dp"
+                tools:listitem="@layout/item_layout" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
         <ProgressBar
@@ -60,6 +61,7 @@
             android:id="@+id/empty_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
