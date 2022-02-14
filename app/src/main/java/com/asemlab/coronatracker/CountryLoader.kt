@@ -1,7 +1,7 @@
 package com.asemlab.coronatracker
 
 import android.content.Context
-import android.support.v4.content.AsyncTaskLoader
+import androidx.loader.content.AsyncTaskLoader
 
 class CountryLoader(context: Context) : AsyncTaskLoader<MutableList<Country>>(context) {
     val url = "https://coronavirus-19-api.herokuapp.com/countries"

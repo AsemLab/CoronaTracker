@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="no_data">لا يوجد بيانات من المصدر</string>
     <string name="no_internet">لايوجد اتصال بالإنترنت</string>
     <string name="today_cases">حالات اليوم في</string>

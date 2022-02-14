@@ -10,7 +10,7 @@
     </style>
 
     <style name="SearchViewTheme">
-        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <item name="colorAccent">@android:color/holo_blue_light</item>
     </style>
 
 </resources>
