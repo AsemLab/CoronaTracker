@@ -18,7 +18,7 @@ class CountryAdapter(
 ) : ArrayAdapter<Country>(context, resource, objects) {
 
     companion object {
-        fun formatNuumbers(num: Long): String {
+        fun formatNumbers(num: Long?): String {
             val n: NumberFormat = NumberFormat.getInstance(Locale("sk", "SK"))
             n.isGroupingUsed = true
 
@@ -31,13 +31,13 @@ class CountryAdapter(
 
         val current = getItem(position)
         val totalCases = listView.findViewById<TextView>(R.id.totalCases_textView)
-        totalCases?.text = current?.totalCases?.let { formatNuumbers(it) }
+        totalCases?.text = current?.totalCases?.let { formatNumbers(it) }
 
         val totalDeaths = listView.findViewById<TextView>(R.id.deaths_textView)
-        totalDeaths?.text = current?.totalDeaths?.let { formatNuumbers(it) }
+        totalDeaths?.text = current?.totalDeaths?.let { formatNumbers(it) }
 
         val totalRecovered = listView.findViewById<TextView>(R.id.recovered_textView)
-        totalRecovered?.text = current?.totalRecovered?.let { formatNuumbers(it) }
+        totalRecovered?.text = current?.totalRecovered?.let { formatNumbers(it) }
 
         val name = listView.findViewById<TextView>(R.id.name_textView)
         name?.text = current?.name.toString()
