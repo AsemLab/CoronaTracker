@@ -1,4 +1,4 @@
-package com.asemlab.coronatracker
+package com.asemlab.coronatracker.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.asemlab.coronatracker.R
+import com.asemlab.coronatracker.models.Country
 import java.text.NumberFormat
 import java.util.*
 

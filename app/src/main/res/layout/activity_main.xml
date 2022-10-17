@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFE082"
-        tools:context="com.asemlab.coronatracker.MainActivity">
+        tools:context="com.asemlab.coronatracker.ui.MainActivity">
 
         <SearchView
             android:id="@+id/search_bar"

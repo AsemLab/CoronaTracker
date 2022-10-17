@@ -1,4 +1,4 @@
-package com.asemlab.coronatracker
+package com.asemlab.coronatracker.ui
 
 import android.content.Context
 import androidx.databinding.DataBindingUtil
@@ -16,7 +16,11 @@ import android.widget.ImageView
 import android.widget.ListView
 import android.widget.SearchView
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
+import com.asemlab.coronatracker.R
 import com.asemlab.coronatracker.databinding.ActivityMainBinding
+import com.asemlab.coronatracker.models.Country
+import com.asemlab.coronatracker.utils.NetworkUtils
 
 class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<MutableList<Country>> {
 

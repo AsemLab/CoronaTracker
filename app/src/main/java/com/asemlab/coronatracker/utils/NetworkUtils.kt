@@ -1,6 +1,7 @@
-package com.asemlab.coronatracker
+package com.asemlab.coronatracker.utils
 
 import android.util.Log
+import com.asemlab.coronatracker.models.Country
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
