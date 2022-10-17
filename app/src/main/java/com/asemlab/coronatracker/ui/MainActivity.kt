@@ -14,7 +14,6 @@ import android.widget.SearchView
 import androidx.activity.viewModels
 import com.asemlab.coronatracker.R
 import com.asemlab.coronatracker.databinding.ActivityMainBinding
-import com.asemlab.coronatracker.databinding.GlobalLayoutBinding
 import com.asemlab.coronatracker.models.Country
 import com.asemlab.coronatracker.utils.formatNumber
 import com.asemlab.coronatracker.viewModels.MainViewModel
@@ -40,7 +39,6 @@ class MainActivity : AppCompatActivity(){
 
         mainViewModel.countries.observe(this){
             addData(it)
-
         }
         setupAdapter()
 
@@ -55,9 +53,7 @@ class MainActivity : AppCompatActivity(){
         }
 
         tempList = mutableListOf()
-
-        val search: SearchView = findViewById(R.id.search_bar)
-        search.apply {
+        binding.searchBar.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
                 override fun onQueryTextSubmit(qu: String?): Boolean {
@@ -66,9 +62,7 @@ class MainActivity : AppCompatActivity(){
                         it.name!!.contains(qu?.subSequence(0, qu.length - 1) ?: "", true)
                     } as MutableList<Country>
                     )
-
                     clearFocus()
-
                     return true
                 }
 
@@ -78,7 +72,6 @@ class MainActivity : AppCompatActivity(){
                         adapter.addAll(tempList)
 
                     }
-
                     return true
                 }
             }
@@ -89,18 +82,13 @@ class MainActivity : AppCompatActivity(){
                 adapter.addAll(tempList)
                 clearFocus()
                 return@OnCloseListener true
-
             }
             )
-
-
         }
 
         binding.swipeRefresh.setOnRefreshListener {
             Log.i(MainActivity::class.simpleName, "In refresh swiper")
             refreshList()
-
-
         }
         binding.swipeRefresh.setColorSchemeResources(
             android.R.color.holo_blue_dark,
@@ -112,9 +100,7 @@ class MainActivity : AppCompatActivity(){
     private fun setupAdapter() {
         adapter = CountryAdapter(this, R.layout.item_layout, mutableListOf())
         binding.listView.adapter = adapter
-
         binding.listView.setOnItemClickListener { parent, view, position, id ->
-
             startAlert(adapter.objects[position])
         }
     }

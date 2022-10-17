@@ -13,7 +13,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(var apiService: ApiService) : ViewModel() {
 
-
     val countries = MutableLiveData<List<Country>>()
 
     fun getCountries() {
