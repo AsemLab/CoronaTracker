@@ -1,111 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="90dp"
-    android:orientation="horizontal"
-    android:background="@color/global_background"
-    android:id="@+id/global"
-    android:onClick="clickOnGlobal"
-    >
 
-    <TextView
-        android:id="@+id/globalName_textView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:textSize="18sp"
-        tools:text="United states of Americas"
-        android:layout_weight="0.9"
-        android:textColor="@android:color/holo_blue_dark"
-        />
+    <data>
 
-    <TextView
-        android:id="@+id/globalCases_textView"
+        <import type="com.asemlab.coronatracker.models.Country" />
+
+        <variable
+            name="globalItem"
+            type="Country" />
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/global"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:textSize="14sp"
-        tools:text="999999999"
-        android:textStyle="bold"
-        android:layout_weight="1"
-        android:textColor="@color/white"
-        />
-    <ImageView
-        android:id="@+id/globalCases_imageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_height="90dp"
+        android:background="@color/global_background"
+        android:onClick="clickOnGlobal"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/globalDeaths_textView"
+            android:id="@+id/globalName_textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            tools:text="6465"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0.9"
             android:gravity="center"
-            android:layout_weight="1"/>
+            android:text="@{globalItem.name}"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
+            tools:text="United states of Americas" />
 
         <TextView
-            android:id="@+id/globalRecovered_textView"
+            android:id="@+id/globalCases_textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="14sp"
-            android:textColor="@android:color/holo_red_dark"
-            tools:text="12345678910"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:gravity="center"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
-        android:layout_weight="0"
-        >
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:format_numbers="@{globalItem.totalCases}"
+            tools:text="999999999" />
 
         <ImageView
-            android:id="@+id/globalDeaths_imageView"
+            android:id="@+id/globalCases_imageView"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            />
+            android:background="@drawable/mask" />
 
-        <ImageView
-            android:id="@+id/globalRecovered_imageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:layout_margin="4dp"
-            />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/globalDeaths_textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                app:format_numbers="@{globalItem.totalDeaths}"
+                tools:text="6465" />
+
+            <TextView
+                android:id="@+id/globalRecovered_textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="14sp"
+                app:format_numbers="@{globalItem.totalRecovered}"
+                tools:text="12345678910" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/globalDeaths_imageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/headstone" />
+
+            <ImageView
+                android:id="@+id/globalRecovered_imageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/heart" />
+
+        </LinearLayout>
+
     </LinearLayout>
-
-</LinearLayout>
 </layout>

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asem/AndroidStudioProjects/CoronaTracker/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asem/AndroidStudioProjects/CoronaTracker/app/src/main/res/layout/global_layout.xml" value="0.16203703703703703" />
+        <entry key="..\:/Users/Asem/AndroidStudioProjects/CoronaTracker/app/src/main/res/layout/item_layout.xml" value="0.16203703703703703" />
         <entry key="..\:/Users/asemx/AndroidStudioProjects/CoronaTracker/app/src/main/res/drawable/progress.xml" value="0.114" />
         <entry key="..\:/Users/asemx/AndroidStudioProjects/CoronaTracker/app/src/main/res/drawable/search_cursor.xml" value="0.1" />
         <entry key="..\:/Users/asemx/AndroidStudioProjects/CoronaTracker/app/src/main/res/layout/activity_main.xml" value="0.16547066272688898" />

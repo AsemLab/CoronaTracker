@@ -10,14 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.ListView
 import android.widget.SearchView
-import android.widget.TextView
 import androidx.activity.viewModels
 import com.asemlab.coronatracker.R
 import com.asemlab.coronatracker.databinding.ActivityMainBinding
+import com.asemlab.coronatracker.databinding.GlobalLayoutBinding
 import com.asemlab.coronatracker.models.Country
+import com.asemlab.coronatracker.utils.formatNumber
 import com.asemlab.coronatracker.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +24,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
     lateinit var adapter: CountryAdapter
-    lateinit var list: ListView
     lateinit var tempList: MutableList<Country>
     lateinit var binding: ActivityMainBinding
     lateinit var connectManager: ConnectivityManager
@@ -45,8 +43,6 @@ class MainActivity : AppCompatActivity(){
 
         }
         setupAdapter()
-
-        alert = AlertDialog.Builder(this)
 
         connectManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         connectInfo = connectManager.activeNetworkInfo
@@ -115,10 +111,9 @@ class MainActivity : AppCompatActivity(){
 
     private fun setupAdapter() {
         adapter = CountryAdapter(this, R.layout.item_layout, mutableListOf())
-        list = findViewById(R.id.list_view)
-        list.adapter = adapter
+        binding.listView.adapter = adapter
 
-        list.setOnItemClickListener { parent, view, position, id ->
+        binding.listView.setOnItemClickListener { parent, view, position, id ->
 
             startAlert(adapter.objects[position])
         }
@@ -147,44 +142,20 @@ class MainActivity : AppCompatActivity(){
         tempList.sortBy {
             it.name
         }
-        generateGlobal()
+        binding.globalLayout.globalItem = global
         binding.swipeRefresh.isRefreshing = false
     }
 
     private fun startAlert(country: Country) {
+        alert = AlertDialog.Builder(this)
         val msg: String =
-            "\n" + getString(R.string.confirmed) + "  " + CountryAdapter.formatNumbers(country.newCases) + "\n\n" +
-                    getString(R.string.deaths) + "  " + CountryAdapter.formatNumbers(country.newDeaths) + "\n\n" +
-                    getString(R.string.active) + "  " + CountryAdapter.formatNumbers(country.active) + "\n"
+            "\n" + getString(R.string.confirmed) + "  " + formatNumber(country.newCases) + "\n\n" +
+                    getString(R.string.deaths) + "  " + formatNumber(country.newDeaths) + "\n\n" +
+                    getString(R.string.active) + "  " + formatNumber(country.active) + "\n"
 
         alert.setTitle(getString(R.string.today_cases) + " " + country.name).setMessage(msg).show()
     }
 
-    private fun generateGlobal() {
-
-
-        val totalCases = findViewById<TextView>(R.id.globalCases_textView)
-        totalCases?.text = CountryAdapter.formatNumbers(global.totalCases)
-
-        val totalDeaths = findViewById<TextView>(R.id.globalDeaths_textView)
-        totalDeaths?.text = CountryAdapter.formatNumbers(global.totalDeaths)
-
-        val totalRecovered = findViewById<TextView>(R.id.globalRecovered_textView)
-        totalRecovered?.text = CountryAdapter.formatNumbers(global.totalRecovered)
-
-        val name = findViewById<TextView>(R.id.globalName_textView)
-        name?.text = global.name
-
-        val rip = findViewById<ImageView>(R.id.globalDeaths_imageView)
-        rip.background = getDrawable(R.drawable.headstone)
-
-        val hospital = findViewById<ImageView>(R.id.globalRecovered_imageView)
-        hospital.background = getDrawable(R.drawable.heart)
-
-        val cases = findViewById<ImageView>(R.id.globalCases_imageView)
-        cases.background = getDrawable(R.drawable.mask)
-
-    }
 
     private fun refreshList() {
 
