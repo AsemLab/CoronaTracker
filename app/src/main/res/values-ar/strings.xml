@@ -9,6 +9,7 @@
     <string name="confirmed">إصابات: </string>
     <string name="deaths">وفاة: </string>
     <string name="active">نشطة: </string>
+    <string name="critical">حرجة: </string>
     <string name="search">بحث</string>
 
 </resources>

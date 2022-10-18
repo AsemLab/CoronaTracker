@@ -8,5 +8,6 @@
     <string name="confirmed">confirmed: </string>
     <string name="deaths">deaths: </string>
     <string name="active">active: </string>
+    <string name="critical">critical: </string>
     <string name="search">Search</string>
 </resources>

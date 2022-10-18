@@ -17,5 +17,7 @@ data class Country(
     @SerializedName("recovered")
     val totalRecovered: Long?,
     @SerializedName("active")
-    val active: Long?
+    val active: Long?,
+    @SerializedName("critical")
+    val critical: Long?
 )
