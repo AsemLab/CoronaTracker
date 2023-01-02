@@ -7,6 +7,9 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("$BASE_URL/countries")
+    @GET("${BASE_URL}countries")
     fun getCountries(): Call<List<Country>>
+
+    @GET("${BASE_URL}all")
+    fun getGlobal(): Call<Country>
 }

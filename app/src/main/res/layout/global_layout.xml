@@ -8,6 +8,13 @@
         <variable
             name="globalItem"
             type="Country" />
+
+        <import type="kotlin.jvm.functions.Function1"/>
+        <import type="kotlin.Unit"/>
+
+        <variable
+            name="itemClicked"
+            type="Function1&lt;Country, Unit>"/>
     </data>
 
 
@@ -18,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:background="@color/global_background"
-        android:onClick="clickOnGlobal"
+        android:onClick="@{ _ -> itemClicked.invoke(globalItem)}"
         android:orientation="horizontal">
 
         <TextView

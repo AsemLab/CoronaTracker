@@ -1,8 +1,8 @@
 
 # CoronaTracker Android App 📱
 
-[![output-onlinepngtools (6)](https://user-images.githubusercontent.com/82704241/196510229-5552f3ad-a0fe-462f-8567-fb5f94a435ac.png)](https://appetize.io/app/rdorqfm2lf6ssgnswovpgldsre)
-[![appsenjoy_badge](https://user-images.githubusercontent.com/82704241/196504384-081acc63-bf22-44d2-b3e1-714d8be1b351.png)](https://appsenjoy.com/Dqp6A)
+[![output-onlinepngtools (6)](https://user-images.githubusercontent.com/82704241/196510229-5552f3ad-a0fe-462f-8567-fb5f94a435ac.png)](https://appetize.io/app/k4aihhxjn47zo663u7fbzbe5pa)
+[![appsenjoy_badge](https://user-images.githubusercontent.com/82704241/196504384-081acc63-bf22-44d2-b3e1-714d8be1b351.png)](https://appsenjoy.com/en/Q2HbbvytCUqNN6J/file)
 
 This app gets the user with the latest numbers about confirmed cases, deaths, and<br> recovered cases of Covid-19 around the world.
 <br><br>

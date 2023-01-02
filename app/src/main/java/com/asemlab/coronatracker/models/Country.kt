@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Country(
     @SerializedName("country")
-    val name: String?,
+    var name: String?,
     @SerializedName("cases")
     val totalCases: Long?,
     @SerializedName("todayCases")

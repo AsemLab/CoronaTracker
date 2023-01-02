@@ -20,7 +20,7 @@ import com.asemlab.coronatracker.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     lateinit var adapter: CountryAdapter
     lateinit var tempList: MutableList<Country>
@@ -37,8 +37,18 @@ class MainActivity : AppCompatActivity(){
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
 
-        mainViewModel.countries.observe(this){
-            addData(it)
+        mainViewModel.apply {
+            countries.observe(this@MainActivity) {
+                addData(it)
+            }
+            global.observe(this@MainActivity) {
+                this@MainActivity.global = it
+                this@MainActivity.global.name = "Global"
+                binding.globalLayout.apply {
+                    globalItem = this@MainActivity.global
+                    itemClicked = ::startAlert
+                }
+            }
         }
         setupAdapter()
 
@@ -46,7 +56,10 @@ class MainActivity : AppCompatActivity(){
         connectInfo = connectManager.activeNetworkInfo
 
         if (connectInfo != null && connectInfo!!.isConnectedOrConnecting) {
-            mainViewModel.getCountries()
+            mainViewModel.apply {
+                getGlobal()
+                getCountries()
+            }
         } else {
             binding.loadingBar.visibility = View.GONE
             binding.emptyState.text = getString(R.string.no_internet)
@@ -117,27 +130,23 @@ class MainActivity : AppCompatActivity(){
 
         adapter.clear()
         tempList.clear()
-        for( i in 1 until countries.size){
-            adapter.add(countries[i])
-            tempList.add(countries[i])
-        }
-        global = countries[0]
+        adapter.addAll(countries)
+        tempList.addAll(countries)
         adapter.objects.sortBy {
             it.name
         }
         tempList.sortBy {
             it.name
         }
-        binding.globalLayout.globalItem = global
         binding.swipeRefresh.isRefreshing = false
     }
 
     private fun startAlert(country: Country) {
         alert = AlertDialog.Builder(this)
-        val msg: String = "\n ${getString(R.string.confirmed, formatNumber(country.newCases))}\n\n" +
-                    "${getString(R.string.deaths, formatNumber(country.newDeaths))}\n\n" +
-                    "${getString(R.string.active, formatNumber(country.active))}\n\n" +
-                    "${getString(R.string.critical, formatNumber(country.critical))}\n"
+        val msg: String = "\n${getString(R.string.confirmed, formatNumber(country.newCases))}\n\n" +
+                "${getString(R.string.deaths, formatNumber(country.newDeaths))}\n\n" +
+                "${getString(R.string.active, formatNumber(country.active))}\n\n" +
+                "${getString(R.string.critical, formatNumber(country.critical))}\n"
 
         alert.setTitle(getString(R.string.today_cases, country.name)).setMessage(msg).show()
     }
@@ -148,7 +157,10 @@ class MainActivity : AppCompatActivity(){
         connectInfo = connectManager.activeNetworkInfo
 
         if (connectInfo != null && connectInfo!!.isConnected) {
-            mainViewModel.getCountries()
+            mainViewModel.apply {
+                getGlobal()
+                getCountries()
+            }
             tempList = mutableListOf()
             Log.e(MainActivity::class.simpleName, "In refreshList")
         } else {
@@ -158,9 +170,5 @@ class MainActivity : AppCompatActivity(){
             adapter.clear()
             binding.swipeRefresh.isRefreshing = false
         }
-    }
-
-    fun clickOnGlobal(view: View) {
-        startAlert(global)
     }
 }
