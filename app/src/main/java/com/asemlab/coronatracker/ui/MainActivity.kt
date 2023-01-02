@@ -1,17 +1,17 @@
 package com.asemlab.coronatracker.ui
 
 import android.content.Context
-import androidx.databinding.DataBindingUtil
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.SearchView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.asemlab.coronatracker.R
 import com.asemlab.coronatracker.databinding.ActivityMainBinding
 import com.asemlab.coronatracker.models.Country
@@ -134,13 +134,12 @@ class MainActivity : AppCompatActivity(){
 
     private fun startAlert(country: Country) {
         alert = AlertDialog.Builder(this)
-        val msg: String =
-            "\n" + getString(R.string.confirmed) + "  " + formatNumber(country.newCases) + "\n\n" +
-                    getString(R.string.deaths) + "  " + formatNumber(country.newDeaths) + "\n\n" +
-                    getString(R.string.active) + "  " + formatNumber(country.active) + "\n\n" +
-                    getString(R.string.critical) + "  " + formatNumber(country.critical) + "\n"
+        val msg: String = "\n ${getString(R.string.confirmed, formatNumber(country.newCases))}\n\n" +
+                    "${getString(R.string.deaths, formatNumber(country.newDeaths))}\n\n" +
+                    "${getString(R.string.active, formatNumber(country.active))}\n\n" +
+                    "${getString(R.string.critical, formatNumber(country.critical))}\n"
 
-                    alert.setTitle(getString(R.string.today_cases) + " " + country.name).setMessage(msg).show()
+        alert.setTitle(getString(R.string.today_cases, country.name)).setMessage(msg).show()
     }
 
 

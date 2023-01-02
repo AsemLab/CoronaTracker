@@ -2,12 +2,12 @@
     <string name="app_name" translatable="false">Corona Tracker</string>
     <string name="no_data">No data found</string>
     <string name="no_internet">No internet connection</string>
-    <string name="today_cases">Today cases in</string>
+    <string name="today_cases">Today cases in  %s</string>
     <string name="close_dialog">Close</string>
 
-    <string name="confirmed">confirmed: </string>
-    <string name="deaths">deaths: </string>
-    <string name="active">active: </string>
-    <string name="critical">critical: </string>
+    <string name="confirmed">confirmed: %s</string>
+    <string name="deaths">deaths: %s</string>
+    <string name="active">active: %s</string>
+    <string name="critical">critical: %s</string>
     <string name="search">Search</string>
 </resources>
