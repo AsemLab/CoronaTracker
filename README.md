@@ -17,4 +17,4 @@ This app gets the user with the latest numbers about confirmed cases, deaths, an
   - Retrofit - to make the api calls <a href="https://square.github.io/retrofit/">Docs</a></li>
   - Gson Converter - A Converter which uses Gson for serialization to and from JSON <a href="https://github.com/square/retrofit/tree/master/retrofit-converters/gson">Docs</a></li>
 ## RESTful Api
-The data source is from the <a href="https://github.com/javieraviles/covidAPI">covidAPI</a> by <a href="https://github.com/javieraviles">Javier Aviles</a>
+The data source is from <a href="https://disease.sh/">disease.sh</a> <a href="https://disease.sh/docs/">Docs</a>
