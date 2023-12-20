@@ -7,7 +7,7 @@
 This app gets the user with the latest numbers about confirmed cases, deaths, and<br> recovered cases of Covid-19 around the world.
 <br><br>
 # Screenshots 📸
-![CoronaTracker](https://github.com/AsemLab/CoronaTracker/assets/82704241/4561b604-36c0-498c-bec7-b23de9e0d697)
+![project_1_preview](https://github.com/AsemLab/CoronaTracker/assets/82704241/c41e4484-a127-4dcb-a20d-980e78eb9a26)
 
 
 <br><br>
